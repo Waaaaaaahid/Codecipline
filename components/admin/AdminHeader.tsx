@@ -17,10 +17,10 @@ export default function AdminHeader({ adminEmail }: AdminHeaderProps) {
   };
 
   return (
-    <header className="flex min-h-16 shrink-0 items-center justify-between gap-3 border-b border-border bg-card px-4 py-3 sm:px-6">
+    <header className="flex min-h-16 shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-card px-4 py-3 sm:px-6">
       <div className="min-w-0">
         <p className="text-xs text-muted sm:text-sm">Welcome back,</p>
-        <p className="max-w-[52vw] truncate text-sm font-semibold text-white sm:max-w-none sm:text-base">{adminEmail}</p>
+        <p className="max-w-[52vw] truncate text-sm font-semibold text-slate-900 sm:max-w-none sm:text-base">{adminEmail}</p>
       </div>
       <div className="flex shrink-0 items-center gap-2 sm:gap-4">
         <div className="hidden items-center gap-2 text-sm text-muted sm:flex">
@@ -28,7 +28,7 @@ export default function AdminHeader({ adminEmail }: AdminHeaderProps) {
         </div>
         <button
           onClick={handleLogout}
-          className="flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 text-sm text-muted transition-colors hover:border-red-500/30 hover:bg-red-500/10 hover:text-red-400"
+          className="flex min-h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 text-sm text-muted transition-colors hover:border-red-500/30 hover:bg-red-500/10 hover:text-red-400"
           aria-label="Logout"
         >
           <LogOut size={16} />
