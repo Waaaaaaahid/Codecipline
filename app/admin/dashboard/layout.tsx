@@ -8,11 +8,11 @@ export default async function DashboardLayout({ children }: { children: React.Re
   if (!admin) redirect('/admin/login');
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex min-h-screen flex-col bg-background md:h-screen md:flex-row md:overflow-hidden">
       <AdminSidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
         <AdminHeader adminEmail={admin.email} />
-        <main className="flex-1 overflow-y-auto p-6 bg-background">
+        <main className="min-w-0 flex-1 bg-background p-4 sm:p-6 md:overflow-y-auto">
           {children}
         </main>
       </div>
