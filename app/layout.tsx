@@ -38,7 +38,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.className} bg-background text-white antialiased`}>
+      <body className={`${inter.className} bg-background text-slate-900 antialiased`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
