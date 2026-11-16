@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { ProjectModel } from '@/models/Project';
+import { ensureDemoProject } from '@/lib/demo-project';
 
 export async function GET(request: NextRequest) {
   try {
     await connectDB();
+    await ensureDemoProject();
 
     const { searchParams } = new URL(request.url);
     const featured = searchParams.get('featured');
