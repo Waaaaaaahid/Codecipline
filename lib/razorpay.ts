@@ -1,10 +1,16 @@
 import Razorpay from 'razorpay';
 import crypto from 'crypto';
 
-export const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
+export function getRazorpay(): Razorpay {
+  const keyId = process.env.RAZORPAY_KEY_ID;
+  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+  if (!keyId || !keySecret) {
+    throw new Error('Please define RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET environment variables');
+  }
+
+  return new Razorpay({ key_id: keyId, key_secret: keySecret });
+}
 
 export function verifyRazorpaySignature({
   orderId,
@@ -15,15 +21,20 @@ export function verifyRazorpaySignature({
   paymentId: string;
   signature: string;
 }): boolean {
+  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+  if (!keySecret || !signature) return false;
+
   const body = `${orderId}|${paymentId}`;
   const expectedSignature = crypto
-    .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET!)
+    .createHmac('sha256', keySecret)
     .update(body)
     .digest('hex');
-  return crypto.timingSafeEqual(
-    Buffer.from(expectedSignature),
-    Buffer.from(signature)
-  );
+
+  const expected = Buffer.from(expectedSignature, 'hex');
+  const received = Buffer.from(signature, 'hex');
+  if (expected.length !== received.length) return false;
+
+  return crypto.timingSafeEqual(expected, received);
 }
 
 export function generateDownloadToken(): string {
