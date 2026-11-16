@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { connectDB } from '@/lib/db';
 import { ProjectModel } from '@/models/Project';
+import { ensureDemoProject } from '@/lib/demo-project';
 import AdminProjectList from '@/components/admin/AdminProjectList';
 import { PlusCircle } from 'lucide-react';
 
@@ -12,6 +13,7 @@ export default async function AdminProjectsPage() {
 
   try {
     await connectDB();
+    await ensureDemoProject();
     const docs = await ProjectModel.find().sort({ createdAt: -1 }).lean();
     projects = docs.map((p: any) => ({ ...p, _id: p._id.toString() }));
   } catch {
