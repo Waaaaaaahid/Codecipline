@@ -17,22 +17,22 @@ export default function AdminHeader({ adminEmail }: AdminHeaderProps) {
   };
 
   return (
-    <header className="h-14 bg-card border-b border-border flex items-center justify-between px-6 shrink-0">
-      <div className="text-sm text-muted">
-        Welcome back,{' '}
-        <span className="text-white font-medium">{adminEmail}</span>
+    <header className="flex min-h-16 shrink-0 items-center justify-between gap-3 border-b border-border bg-card px-4 py-3 sm:px-6">
+      <div className="min-w-0">
+        <p className="text-xs text-muted sm:text-sm">Welcome back,</p>
+        <p className="max-w-[52vw] truncate text-sm font-semibold text-white sm:max-w-none sm:text-base">{adminEmail}</p>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 text-sm text-muted">
-          <User size={14} />
-          Admin
+      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+        <div className="hidden items-center gap-2 text-sm text-muted sm:flex">
+          <User size={16} /> Admin
         </div>
         <button
           onClick={handleLogout}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-muted hover:text-red-400 hover:bg-red-500/10 transition-all duration-200 text-sm"
+          className="flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 text-sm text-muted transition-colors hover:border-red-500/30 hover:bg-red-500/10 hover:text-red-400"
+          aria-label="Logout"
         >
-          <LogOut size={14} />
-          Logout
+          <LogOut size={16} />
+          <span className="hidden xs:inline">Logout</span>
         </button>
       </div>
     </header>
