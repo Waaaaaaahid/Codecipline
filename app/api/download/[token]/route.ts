@@ -4,6 +4,7 @@ import { PurchaseModel } from '@/models/Purchase';
 import { ProjectModel } from '@/models/Project';
 import path from 'path';
 import fs from 'fs';
+import { DEMO_SOURCE_FILE, DEMO_ZIP_BASE64 } from '@/lib/demo-project';
 
 export async function GET(
   _request: NextRequest,
@@ -47,7 +48,23 @@ export async function GET(
     purchase.downloadCount += 1;
     await purchase.save();
 
-    // Serve the file
+    // The demo ZIP is bundled as a tiny base64 payload, so it works on Vercel's
+    // read-only serverless filesystem without requiring an admin upload.
+    if (project.sourceFile === DEMO_SOURCE_FILE) {
+      const fileBuffer = Buffer.from(DEMO_ZIP_BASE64, 'base64');
+      const fileName = `${project.slug}-source.zip`;
+      return new NextResponse(fileBuffer, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/zip',
+          'Content-Disposition': `attachment; filename="${fileName}"`,
+          'Content-Length': fileBuffer.length.toString(),
+          'Cache-Control': 'no-store, no-cache',
+        },
+      });
+    }
+
+    // Serve an admin-uploaded file from private storage
     const filePath = path.resolve(process.cwd(), 'private', project.sourceFile);
 
     if (!fs.existsSync(filePath)) {
