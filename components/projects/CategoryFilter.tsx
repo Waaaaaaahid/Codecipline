@@ -27,7 +27,7 @@ export default function CategoryFilter({ selected, onChange, counts }: CategoryF
           key={value}
           onClick={() => onChange(value)}
           className={clsx(
-            'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+            'min-h-10 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200',
             selected === value
               ? 'bg-accent text-white shadow-accent-sm'
               : 'bg-surface border border-border text-muted hover:text-white hover:border-accent/50'
