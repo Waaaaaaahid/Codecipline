@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0B0B0D;
+    --card: #151518;
+    --accent: #FF6B35;
+    --border: #2a2a30;
+    --muted: #8b8b9a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(255, 107, 53, 0.3);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0B0B0D;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a30;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF6B35;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold text-sm
+           transition-all duration-200 hover:bg-accent-hover hover:shadow-accent-sm
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-white font-semibold text-sm
+           transition-all duration-200 hover:border-accent hover:text-accent
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-muted font-medium text-sm
+           transition-all duration-200 hover:text-white hover:bg-surface
+           active:scale-95;
+  }
+
+  .card {
+    @apply bg-card border border-border rounded-xl transition-all duration-300
+           hover:border-accent/30 hover:shadow-card-hover;
+  }
+
+  .section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-muted text-lg mt-3;
+  }
+
+  .tech-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium
+           bg-surface text-muted-light border border-border;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-orange-400 bg-clip-text text-transparent;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-surface border border-border text-white
+           placeholder:text-muted text-sm
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-muted-light mb-1.5;
+  }
+}
+
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, #2a2a30 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Orange glow effect */
+.orange-glow {
+  box-shadow: 0 0 60px rgba(255, 107, 53, 0.15);
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #151518 25%,
+    #1e1e24 50%,
+    #151518 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Smooth number transitions */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}

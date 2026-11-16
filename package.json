@@ -1,0 +1,43 @@
+{
+  "name": "devmarket",
+  "version": "1.0.0",
+  "description": "Premium developer portfolio & source code marketplace",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "npx tsx scripts/seed-admin.ts"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/uuid": "^9.0.7",
+    "autoprefixer": "^10.4.16",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.0",
+    "jose": "^5.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.316.0",
+    "mongoose": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    "next": "14.1.0",
+    "postcss": "^8.4.33",
+    "razorpay": "^2.9.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.6.1",
+    "tsx": "^4.23.15"
+  }
+}
