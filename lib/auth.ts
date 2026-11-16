@@ -2,9 +2,13 @@ import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'change-this-secret-in-production'
-);
+function getJwtSecret() {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error('Please define JWT_SECRET environment variable');
+  }
+  return new TextEncoder().encode(secret);
+}
 
 const COOKIE_NAME = 'admin_token';
 
@@ -13,12 +17,12 @@ export async function signAdminToken(payload: { adminId: string; email: string }
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime('7d')
-    .sign(JWT_SECRET);
+    .sign(getJwtSecret());
 }
 
 export async function verifyAdminToken(token: string) {
   try {
-    const { payload } = await jwtVerify(token, JWT_SECRET);
+    const { payload } = await jwtVerify(token, getJwtSecret());
     return payload as { adminId: string; email: string };
   } catch {
     return null;
