@@ -23,7 +23,7 @@ if (!MONGODB_URI) {
 }
 
 const email = process.env.ADMIN_EMAIL?.toLowerCase();
-const password = process.env.ADMIN_PASSWORD;
+const password = process.env.ADMIN_PASSWORD || '';
 if (!email || !password) {
   console.error('❌  ADMIN_EMAIL and ADMIN_PASSWORD must be set in .env.local');
   process.exit(1);
