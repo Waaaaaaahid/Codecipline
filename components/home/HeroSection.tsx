@@ -13,13 +13,13 @@ export default function HeroSection() {
 
       <div className="section relative z-10 text-center py-20">
         {/* Pre-heading badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent text-sm font-medium mb-8 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs sm:text-sm font-medium mb-6 sm:mb-8 animate-fade-in">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse-slow" />
           Available for new projects
         </div>
 
         {/* Main heading */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight animate-slide-up">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight animate-slide-up">
           Building{' '}
           <span className="gradient-text">Digital</span>
           <br />
@@ -27,14 +27,14 @@ export default function HeroSection() {
         </h1>
 
         {/* Subheading */}
-        <p className="text-muted text-xl sm:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up">
+        <p className="text-muted text-base sm:text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up">
           Full-stack developer crafting clean, production-ready web applications.
           Browse my projects and{' '}
           <span className="text-muted-light font-medium">purchase the source code</span>.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+        <div className="flex w-full flex-col sm:w-auto sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-up">
           <Link href="/projects" className="btn-primary text-base px-8 py-4 group">
             Explore Projects
             <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
