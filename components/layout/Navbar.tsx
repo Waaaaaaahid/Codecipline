@@ -33,7 +33,7 @@ export default function Navbar() {
       className={clsx(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-md'
+          ? 'bg-background/90 backdrop-blur-md border-b border-slate-200 shadow-md'
           : 'bg-transparent'
       )}
     >
@@ -42,9 +42,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center group-hover:shadow-accent-sm transition-all duration-200">
-              <Code2 size={18} className="text-white" />
+              <Code2 size={18} className="text-slate-900" />
             </div>
-            <span className="font-bold text-white text-lg">
+            <span className="font-bold text-slate-900 text-lg">
               Dev<span className="text-accent">Market</span>
             </span>
           </Link>
@@ -58,8 +58,8 @@ export default function Navbar() {
                 className={clsx(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
                   pathname === link.href
-                    ? 'text-accent bg-accent/10'
-                    : 'text-muted hover:text-white hover:bg-surface'
+                    ? 'text-accent bg-blue-50'
+                    : 'text-muted hover:text-slate-900 hover:bg-surface'
                 )}
               >
                 {link.label}
@@ -74,7 +74,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 rounded-lg text-muted hover:text-white hover:bg-surface transition-all"
+              className="md:hidden p-2 rounded-lg text-muted hover:text-slate-900 hover:bg-surface transition-all"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -84,7 +84,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 border-t border-slate-200 animate-fade-in">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
@@ -93,8 +93,8 @@ export default function Navbar() {
                   className={clsx(
                     'px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200',
                     pathname === link.href
-                      ? 'text-accent bg-accent/10'
-                      : 'text-muted hover:text-white hover:bg-surface'
+                      ? 'text-accent bg-blue-50'
+                      : 'text-muted hover:text-slate-900 hover:bg-surface'
                   )}
                 >
                   {link.label}
