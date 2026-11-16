@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className="flex flex-wrap gap-2 mb-3">
                 <span className="tech-badge capitalize">{project.category}</span>
               </div>
-              <h1 className="text-4xl font-bold text-white mb-3">{project.name}</h1>
+              <h1 className="text-4xl font-bold text-slate-900 mb-3">{project.name}</h1>
               <p className="text-muted text-lg leading-relaxed">{project.shortDescription}</p>
             </div>
 
@@ -90,14 +90,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {/* Screenshots */}
             {project.screenshots && project.screenshots.length > 0 && (
               <div>
-                <h2 className="text-xl font-semibold text-white mb-4">Screenshots</h2>
+                <h2 className="text-xl font-semibold text-slate-900 mb-4">Screenshots</h2>
                 <ScreenshotGallery screenshots={project.screenshots} projectName={project.name} />
               </div>
             )}
 
             {/* Description */}
             <div>
-              <h2 className="text-xl font-semibold text-white mb-4">About This Project</h2>
+              <h2 className="text-xl font-semibold text-slate-900 mb-4">About This Project</h2>
               <div className="text-muted leading-relaxed whitespace-pre-line">
                 {project.description}
               </div>
@@ -106,12 +106,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {/* Features */}
             {project.features && project.features.length > 0 && (
               <div>
-                <h2 className="text-xl font-semibold text-white mb-4">Features</h2>
+                <h2 className="text-xl font-semibold text-slate-900 mb-4">Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {project.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-light text-sm">{feature}</span>
+                      <span className="text-slate-700 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -120,7 +120,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
             {/* Technologies */}
             <div>
-              <h2 className="text-xl font-semibold text-white mb-4">Tech Stack</h2>
+              <h2 className="text-xl font-semibold text-slate-900 mb-4">Tech Stack</h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span key={tech} className="tech-badge text-sm px-3 py-1.5">{tech}</span>
@@ -135,7 +135,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               {/* Price */}
               <div>
                 <p className="text-muted text-sm mb-1">Source Code Price</p>
-                <div className="flex items-center gap-1 text-4xl font-bold text-white">
+                <div className="flex items-center gap-1 text-4xl font-bold text-slate-900">
                   <IndianRupee size={28} className="text-accent" />
                   <span>{project.price.toLocaleString('en-IN')}</span>
                 </div>
@@ -150,7 +150,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   'Setup instructions',
                   'Lifetime updates',
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-muted-light">
+                  <div key={item} className="flex items-center gap-2 text-sm text-slate-700">
                     <CheckCircle2 size={14} className="text-accent flex-shrink-0" />
                     {item}
                   </div>
