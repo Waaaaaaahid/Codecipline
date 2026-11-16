@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { ProjectModel } from '@/models/Project';
 import { requireAdmin } from '@/lib/auth';
+import { ensureDemoProject } from '@/lib/demo-project';
 
 export async function GET(request: NextRequest) {
   const admin = await requireAdmin(request);
@@ -11,6 +12,7 @@ export async function GET(request: NextRequest) {
 
   try {
     await connectDB();
+    await ensureDemoProject();
     const projects = await ProjectModel.find().sort({ createdAt: -1 }).lean();
     const data = projects.map((p: any) => ({
       ...p,
