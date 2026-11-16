@@ -19,9 +19,9 @@ function Brand() {
   return (
     <Link href="/" className="flex min-w-0 items-center gap-3">
       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent">
-        <Code2 size={19} className="text-white" />
+        <Code2 size={19} className="text-slate-900" />
       </span>
-      <span className="truncate text-base font-bold text-white">
+      <span className="truncate text-base font-bold text-slate-900">
         Dev<span className="text-accent">Market</span>
       </span>
     </Link>
@@ -43,7 +43,7 @@ export default function AdminSidebar() {
             onClick={() => setOpen(false)}
             className={clsx(
               'flex min-h-11 items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition-colors',
-              isActive ? 'bg-accent/10 text-accent' : 'text-muted hover:bg-surface hover:text-white'
+              isActive ? 'bg-blue-50 text-accent' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             )}
           >
             <Icon size={18} className="shrink-0" />
@@ -55,8 +55,8 @@ export default function AdminSidebar() {
   );
 
   const footer = (
-    <div className="border-t border-border p-3">
-      <Link href="/" target="_blank" className="flex min-h-11 items-center gap-3 rounded-xl px-3 py-3 text-sm text-muted transition-colors hover:bg-surface hover:text-white">
+    <div className="border-t border-slate-200 p-3">
+      <Link href="/" target="_blank" className="flex min-h-11 items-center gap-3 rounded-xl px-3 py-3 text-sm text-muted transition-colors hover:bg-surface hover:text-slate-900">
         <span>↗</span><span>View Site</span>
       </Link>
     </div>
@@ -64,21 +64,21 @@ export default function AdminSidebar() {
 
   return (
     <>
-      <div className="flex h-16 shrink-0 items-center justify-between border-b border-border bg-card px-4 md:hidden">
+      <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-card px-4 md:hidden">
         <Brand />
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open admin navigation"
           aria-expanded={open}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-white hover:bg-surface"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-900 hover:bg-surface"
         >
           <Menu size={21} />
         </button>
       </div>
 
-      <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-card md:flex">
-        <div className="border-b border-border p-5">
+      <aside className="hidden w-60 shrink-0 flex-col border-r border-slate-200 bg-card md:flex">
+        <div className="border-b border-slate-200 p-5">
           <Brand />
           <p className="mt-3 text-xs text-muted">Admin Dashboard</p>
         </div>
@@ -89,10 +89,10 @@ export default function AdminSidebar() {
       {open && (
         <div className="fixed inset-0 z-[70] md:hidden">
           <button className="absolute inset-0 bg-black/70" onClick={() => setOpen(false)} aria-label="Close navigation" />
-          <aside className="absolute inset-y-0 left-0 flex w-[min(84vw,300px)] flex-col border-r border-border bg-card shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border p-4">
+          <aside className="absolute inset-y-0 left-0 flex w-[min(84vw,300px)] flex-col border-r border-slate-200 bg-card shadow-2xl">
+            <div className="flex items-center justify-between border-b border-slate-200 p-4">
               <div className="min-w-0"><Brand /><p className="mt-2 text-xs text-muted">Admin Dashboard</p></div>
-              <button onClick={() => setOpen(false)} aria-label="Close navigation" className="ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-muted hover:bg-surface hover:text-white"><X size={20} /></button>
+              <button onClick={() => setOpen(false)} aria-label="Close navigation" className="ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900"><X size={20} /></button>
             </div>
             {links}
             {footer}
