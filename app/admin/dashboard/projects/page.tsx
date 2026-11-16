@@ -19,14 +19,14 @@ export default async function AdminProjectsPage() {
   }
 
   return (
-    <div className="space-y-6 max-w-6xl">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-white">Projects</h1>
-          <p className="text-muted text-sm mt-1">{projects.length} projects total</p>
+    <div className="mx-auto w-full max-w-6xl space-y-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
+          <h1 className="text-2xl font-bold text-white sm:text-3xl">Projects</h1>
+          <p className="mt-1 text-sm text-muted">{projects.length} projects total</p>
         </div>
-        <Link href="/admin/dashboard/projects/new" className="btn-primary">
-          <PlusCircle size={16} />
+        <Link href="/admin/dashboard/projects/new" className="btn-primary min-h-11 w-full justify-center sm:w-auto">
+          <PlusCircle size={17} />
           Add Project
         </Link>
       </div>
