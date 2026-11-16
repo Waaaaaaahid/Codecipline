@@ -63,7 +63,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
       ) : (
         <>
           <p className="text-muted text-sm">{filtered.length} project{filtered.length !== 1 ? 's' : ''} found</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filtered.map((project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
