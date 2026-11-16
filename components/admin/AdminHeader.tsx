@@ -32,7 +32,7 @@ export default function AdminHeader({ adminEmail }: AdminHeaderProps) {
           aria-label="Logout"
         >
           <LogOut size={16} />
-          <span className="hidden xs:inline">Logout</span>
+          <span className="hidden sm:inline">Logout</span>
         </button>
       </div>
     </header>
