@@ -17,16 +17,16 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer className="border-t border-slate-200 bg-card/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-                <Code2 size={18} className="text-white" />
+                <Code2 size={18} className="text-slate-900" />
               </div>
-              <span className="font-bold text-white text-lg">
+              <span className="font-bold text-slate-900 text-lg">
                 Dev<span className="text-accent">Market</span>
               </span>
             </Link>
@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm">Navigation</h3>
+            <h3 className="text-slate-900 font-semibold mb-4 text-sm">Navigation</h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.href}>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm">Connect</h3>
+            <h3 className="text-slate-900 font-semibold mb-4 text-sm">Connect</h3>
             <div className="flex gap-3">
               {socialLinks.map(({ href, icon: Icon, label }) => (
                 <a
@@ -63,7 +63,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center
+                  className="w-9 h-9 rounded-lg bg-surface border border-slate-200 flex items-center justify-center
                              text-muted hover:text-accent hover:border-accent/50 transition-all duration-200"
                 >
                   <Icon size={16} />
@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted text-sm">
             © {new Date().getFullYear()} DevMarket. All rights reserved.
           </p>
